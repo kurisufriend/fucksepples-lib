@@ -53,3 +53,42 @@ std::string dumbfmt_html_escape(std::string o)
     res = dumbfmt_replace("\'", "&apos;", res);
     return res;
 }
+
+std::vector<std::string> dumbfmt_split(std::string &input, char delimiter)
+{
+    std::vector<std::string> res;
+    std::string acc = "";
+    
+    foreach(input, c)
+    {
+        if (*c == delimiter)
+        {
+            res.push_back(acc);
+            acc = "";
+        }
+        else 
+        {
+            acc.append(std::string(1, *c));
+        }
+    }
+    res.push_back(acc);
+    return res;
+}
+
+std::string dumbfmt_collapse_whitespace(std::string input)
+{
+    std::string acc = "";
+    
+    foreach(input, c)
+    {
+        if (*c == ' ' && acc.back() == ' ')
+        {
+            continue;
+        }
+        else 
+        {
+            acc.append(std::string(1, *c));
+        }
+    }
+    return acc;
+}

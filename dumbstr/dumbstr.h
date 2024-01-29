@@ -10,3 +10,5 @@ std::string dumbfmt(std::vector<std::string> o);
 std::string dumbfmt_replace(std::string needle, std::string gold, std::string &haystack);
 std::string dumbfmt_file(std::string path, std::map<std::string, std::string> dict, bool cach=true);
 std::string dumbfmt_html_escape(std::string o);
+std::vector<std::string> dumbfmt_split(std::string &input, char delimiter);
+std::string dumbfmt_collapse_whitespace(std::string input);
