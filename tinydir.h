@@ -1,1 +1,1 @@
-tinydir/tinydir.h
+lib/tinydir/tinydir.h
