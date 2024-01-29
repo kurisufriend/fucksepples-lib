@@ -1,3 +1,6 @@
 [submodule "tinydir"]
 	path = tinydir
 	url = https://github.com/cxong/tinydir
+[submodule "json"]
+	path = json
+	url = https://github.com/nlohmann/json
