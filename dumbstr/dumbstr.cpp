@@ -92,3 +92,17 @@ std::string dumbfmt_collapse_whitespace(std::string input)
     }
     return acc;
 }
+
+std::string dumbfmt_before(std::string haystack, char delimiter)
+{
+    std::string acc = "";
+    foreach(haystack, c)
+    {
+        if (*c == delimiter)
+        {
+            break;
+        }
+        acc.append(std::string(1, *c));
+    }
+    return acc;
+}

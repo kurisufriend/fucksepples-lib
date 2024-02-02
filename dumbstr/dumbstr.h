@@ -12,3 +12,4 @@ std::string dumbfmt_file(std::string path, std::map<std::string, std::string> di
 std::string dumbfmt_html_escape(std::string o);
 std::vector<std::string> dumbfmt_split(std::string &input, char delimiter);
 std::string dumbfmt_collapse_whitespace(std::string input);
+std::string dumbfmt_before(std::string haystack, char delimiter);
