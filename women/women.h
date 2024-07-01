@@ -1,3 +1,6 @@
+// or, the study of random signals & noise
+// facebook-tier, i know. fyad.
+
 #pragma once
 #include <vector>
 #include <any>
@@ -9,6 +12,5 @@
 template <typename T>
 T choice_vector(std::vector<T> v)
 {
-
     return v.at(randint(0, v.size()-1));
 }

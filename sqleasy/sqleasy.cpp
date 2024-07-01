@@ -4,8 +4,7 @@ int sqleasy_q::cb(void* a, int argc, char** argv, char** colname)
 {
     rows* rs = (rows*)a;
     row r;
-    int i;
-    for(i=0; i<argc; i++)
+    for(int i = 0; i < argc; i++)
         r.emplace(colname[i], argv[i] ? argv[i] : "NULL");
     rs->push_back(r);
     return 0;
