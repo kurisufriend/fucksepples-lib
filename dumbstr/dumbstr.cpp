@@ -5,11 +5,15 @@
 #include "dumbstr.h"
 #include <iostream>
 
-std::string dumbfmt(std::vector<std::string> o)
+std::string dumbfmt(std::vector<std::string> o, std::string delimiter)
 {
     std::string base = "";
     for (auto iter = o.begin(); iter != o.end(); iter++)
+    {
         base.append(*iter);
+        if (!delimiter.empty() && iter + 1 != o.end())
+            base.append(delimiter);
+    }
     return base;
 }
 
