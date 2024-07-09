@@ -4,6 +4,7 @@
 #include <string>
 #include "dumbstr.h"
 #include <iostream>
+#include <sstream>
 
 std::string dumbfmt(std::vector<std::string> o, std::string delimiter)
 {
@@ -106,7 +107,17 @@ std::string dumbfmt_before(std::string haystack, char delimiter)
         {
             break;
         }
-        acc.append(std::string(1, *c));
+        acc.push_back(*c);
     }
     return acc;
+}
+
+std::vector<std::string> dumbfmt_sandwich(std::vector<std::string> v, std::string before, std::string after)
+{
+    std::vector<std::string> res;
+    foreach(v, i)
+    {
+        res.push_back(dumbfmt({before, *i, after}));
+    }
+    return res;
 }
