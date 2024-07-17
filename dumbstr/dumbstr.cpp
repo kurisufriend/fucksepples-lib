@@ -98,16 +98,28 @@ std::string dumbfmt_collapse_whitespace(std::string input)
     return acc;
 }
 
-std::string dumbfmt_before(std::string haystack, char delimiter)
+std::string dumbfmt_before(std::string &haystack, char delimiter)
 {
     std::string acc = "";
     foreach(haystack, c)
     {
         if (*c == delimiter)
-        {
             break;
-        }
         acc.push_back(*c);
+    }
+    return acc;
+}
+
+std::string dumbfmt_after(std::string &haystack, char delimiter)
+{
+    std::string acc = "";
+    bool hit = false;
+    foreach(haystack, c)
+    {
+        if (*c == delimiter)
+            hit = true;
+        if (hit)
+            acc.push_back(*c);
     }
     return acc;
 }
