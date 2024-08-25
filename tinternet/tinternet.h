@@ -8,3 +8,16 @@
 
 #include <vector>
 #define ezin(needle, haystack) (std::find(haystack.begin(), haystack.end(), needle) != haystack.end())
+
+#include <string>
+inline int sstoi(std::string i, int defaul = -1337)
+{
+    try
+    {
+        return std::stoi(i);
+    }
+    catch (...)
+    {
+        return defaul;
+    }
+}
