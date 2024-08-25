@@ -5,6 +5,7 @@
 #include "dumbstr.h"
 #include <iostream>
 #include <sstream>
+#include "../phile/phile.h"
 
 std::string dumbfmt(std::vector<std::string> o, std::string delimiter)
 {
@@ -41,7 +42,7 @@ std::string dumbfmt_file(std::string path, std::map<std::string, std::string> di
         f.open(path);
         body = {(std::istreambuf_iterator<char>(f)), std::istreambuf_iterator<char>()};
         f.close();
-        cache.emplace(path, body);
+        cache[path] = body;
     }
     for (std::pair<std::string, std::string> p : dict)
         body = dumbfmt_replace(dumbfmt({"{{{", p.first,"}}}"}), p.second, body);
