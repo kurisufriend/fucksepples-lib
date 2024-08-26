@@ -7,6 +7,7 @@
 #endif
 
 #include <vector>
+#include <algorithm>
 #define ezin(needle, haystack) (std::find(haystack.begin(), haystack.end(), needle) != haystack.end())
 
 #include <string>
