@@ -20,3 +20,5 @@ struct sqleasy_q//uery
     rows exec();
     void rexec(rows* res);
 };
+#define se(s) sqlesc(s)
+std::string sqlesc(std::string s);

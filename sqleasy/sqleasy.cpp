@@ -1,4 +1,5 @@
 #include "sqleasy.h"
+#include "../dumbstr/dumbstr.h"
 
 int sqleasy_q::cb(void* a, int argc, char** argv, char** colname)
 {
@@ -21,4 +22,24 @@ rows sqleasy_q::exec()
 void sqleasy_q::rexec(rows* res)
 {
     sqlite3_exec(this->db, this->query.c_str(), sqleasy_q::cb, res, &this->err);
+}
+
+std::string sqlesc(std::string s)
+{
+    std::string res;
+    for (auto c = s.begin(); c != s.end(); c++)
+    {
+        if (*c == '"')
+            res.append("\"\"");
+        else if (*c == '\'')
+            res.append("\'\'");
+        else if (*c == '\\')
+            res.append("\\\\");
+        else if (*c == '\0')
+            res.append("\\0");
+        else
+            res.push_back(*c);
+    }
+    std::cout << res << std::endl;
+    return res;
 }
